@@ -207,20 +207,20 @@ export const interests: Interest[] = [
     color: "rose",
     plate: "/interests/music.svg",
     blurb: "Steelpan, piano, and one song I've played more than 50 times.",
-    details: ["Steelpan", "Piano", "Top track: Hartwell"],
+    details: ["Steelpan", "Piano", "Top track: Rein Me In"],
     body: [
       "I play steelpan, the instrument Trinidad and Tobago gave the world, and piano.",
-      "My top track right now is Hartwell by Shelly. I've listened to it over 50 times and I'm not stopping. Press play on the record to hear a bit of it.",
+      "My top track right now is Rein Me In by Sam Fender and Olivia Dean. I've listened to it over 50 times and I'm not stopping. Press play on the record to hear a bit of it.",
     ],
     track: {
-      title: "Hartwell",
-      artist: "Shelly",
-      album: "Shelly 2",
+      title: "Rein Me In",
+      artist: "Sam Fender & Olivia Dean",
+      album: "Rein Me In (Single)",
       preview:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/36/5b/4e365bbc-9dc5-c6ed-0488-62186d3339f6/mzaf_5340842361165782338.plus.aac.p.m4a",
+        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/40/ed/fb/40edfb1b-5292-9ebc-a724-fc14e9a65502/mzaf_11469346113225952343.plus.aac.p.m4a",
       cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8f/9a/3d/8f9a3d61-0869-3059-75b0-58943b3f1f0d/artwork.jpg/300x300bb.jpg",
-      spotify: "https://open.spotify.com/search/Hartwell%20Shelly",
+        "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ec/81/1d/ec811d0e-64d9-224c-25df-9d26456874f9/25UMGIM75096.rgb.jpg/300x300bb.jpg",
+      spotify: "https://open.spotify.com/search/Rein%20Me%20In%20Olivia%20Dean",
       note: "50+ plays and counting",
     },
     photos: [],

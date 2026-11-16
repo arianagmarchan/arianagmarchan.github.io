@@ -19,7 +19,7 @@ export default function ProjectsPage() {
     <PageShell
       title="Projects"
       tint="cool"
-      intro="Things I've designed, built, broken and rebuilt, on teams, in the lab and on my own."
+      intro="Things I've designed, built and rebuilt, on teams, in the lab and on my own."
       back={{ href: "/", label: "Home" }}
     >
       <ol className="relative space-y-3">
