@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup B — Drawing Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111111;
+    --panel: #1a1a1a;
+    --text: #ededed;
+    --muted: #9a9a9a;
+    --rule: #2c2c2c;
+    --accent: #e8743b; /* safety orange, used for the status line and hover */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  a { color: var(--text); }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  .layout { display: grid; grid-template-columns: 360px 1fr; min-height: 100vh; }
+
+  aside {
+    position: sticky; top: 0; height: 100vh;
+    padding: 48px 40px;
+    border-right: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+  }
+  aside h1 { font-size: 32px; line-height: 1.1; font-weight: 600; margin: 0 0 16px; }
+  aside .lede { color: var(--muted); margin: 0 0 32px; }
+  aside .status { color: var(--accent); font-size: 14px; margin: 0 0 32px; }
+  aside ul { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+  aside li { padding: 8px 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; }
+  aside li a { text-decoration: none; }
+  aside li a:hover { color: var(--accent); }
+  aside li span { color: var(--muted); }
+  aside .foot { margin-top: auto; color: var(--muted); font-size: 13px; }
+
+  main { padding: 48px 56px 96px; max-width: 900px; }
+
+  .feature .img {
+    background: var(--panel); border: 1px solid var(--rule);
+    aspect-ratio: 3 / 2;
+    display: flex; align-items: flex-end; padding: 16px;
+    color: var(--muted); font-size: 13px;
+  }
+  .feature-body { display: grid; grid-template-columns: 1fr 220px; gap: 32px; padding: 24px 0 0; }
+  .feature h2 { font-size: 26px; font-weight: 500; margin: 0 0 12px; }
+  .feature p { margin: 0 0 12px; color: #cfcfcf; }
+  .specs { font-size: 13px; margin: 0; }
+  .specs dt { color: var(--muted); }
+  .specs dd { margin: 0 0 12px; }
+
+  h3.index-title { font-size: 18px; font-weight: 500; margin: 80px 0 8px; }
+  .index-note { color: var(--muted); margin: 0 0 24px; font-size: 15px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-weight: 400; color: var(--muted); font-size: 13px; padding: 0 12px 8px 0; border-bottom: 1px solid var(--rule); }
+  td { padding: 16px 12px 16px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.no { width: 64px; color: var(--muted); font-size: 14px; }
+  td.title a { text-decoration: none; font-weight: 500; }
+  td.title a:hover { color: var(--accent); }
+  td.title small { display: block; color: var(--muted); font-size: 14px; font-weight: 400; }
+  td.tools, td.yr { font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+  .exp { margin-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .exp h3 { font-size: 18px; font-weight: 500; margin: 0 0 16px; }
+  .exp p { margin: 0 0 4px; }
+  .exp .when { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 32px 16px; }
+    aside .foot { margin-top: 24px; }
+    main { padding: 32px 16px 64px; }
+    .feature-body, .exp { grid-template-columns: 1fr; gap: 16px; }
+    td.tools { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside>
+    <h1>Ariana Marchan</h1>
+    <p class="lede">Aerospace engineering student at USC. Placeholder line about the area you focus on, e.g. structures and test.</p>
+    <p class="status mono">Available for Summer 20XX internships</p>
+    <ul>
+      <li><a href="#">Resume (PDF)</a><span class="mono">1 pg</span></li>
+      <li><a href="#">Email</a><span class="mono">name@usc.edu</span></li>
+      <li><a href="#">LinkedIn</a><span class="mono">/in/handle</span></li>
+      <li><a href="#">GitHub</a><span class="mono">@handle</span></li>
+    </ul>
+    <p class="foot mono">Los Angeles, CA</p>
+  </aside>
+
+  <main>
+    <article class="feature">
+      <div class="img mono">FIG. 1 — Photo of the featured build</div>
+      <div class="feature-body">
+        <div>
+          <h2>Featured project title</h2>
+          <p>Placeholder paragraph. State the problem in one sentence, then what you designed, built or analyzed, then what happened when you tested it.</p>
+          <p>Second placeholder paragraph for what you would change next time.</p>
+          <a href="#">Full write-up</a>
+        </div>
+        <dl class="specs mono">
+          <dt>Role</dt><dd>Placeholder role</dd>
+          <dt>Team</dt><dd>Placeholder team, N people</dd>
+          <dt>Tools</dt><dd>SolidWorks, ANSYS, MATLAB</dd>
+          <dt>Date</dt><dd>Month 20XX</dd>
+        </dl>
+      </div>
+    </article>
+
+    <h3 class="index-title">Project index</h3>
+    <p class="index-note">Everything else, newest first. Each links to its own page.</p>
+    <table>
+      <thead><tr><th>No.</th><th>Project</th><th>Tools</th><th>Year</th></tr></thead>
+      <tbody>
+        <tr><td class="no mono">02</td><td class="title"><a href="#">Project title two</a><small>Placeholder one-line summary of the project</small></td><td class="tools mono">MATLAB</td><td class="yr mono">20XX</td></tr>
+        <tr><td class="no mono">03</td><td class="title"><a href="#">Project title three</a><small>Placeholder one-line summary of the project</small></td><td class="tools mono">Fusion 360, CNC</td><td class="yr mono">20XX</td></tr>
+        <tr><td class="no mono">04</td><td class="title"><a href="#">Project title four</a><small>Placeholder one-line summary of the project</small></td><td class="tools mono">Python, Arduino</td><td class="yr mono">20XX</td></tr>
+        <tr><td class="no mono">05</td><td class="title"><a href="#">Project title five</a><small>Placeholder one-line summary of the project</small></td><td class="tools mono">XFLR5</td><td class="yr mono">20XX</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exp">
+      <div>
+        <h3>Experience</h3>
+        <p>Role title, Company</p><p class="when mono">Summer 20XX</p>
+        <p>Subteam role, USC student org</p><p class="when mono">20XX – present</p>
+      </div>
+      <div>
+        <h3>Coursework</h3>
+        <p>AME XXX Placeholder course</p><p class="when mono">Fall 20XX</p>
+        <p>AME XXX Placeholder course</p><p class="when mono">Spring 20XX</p>
+      </div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup F — Field Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #161616;
+    --muted: #686868;
+    --rule: #e2e2e2;
+    --img: #ececec;
+    --accent: #b4441c; /* rust, links only */
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Instrument Sans", Helvetica, sans-serif; font-size: 17px; line-height: 1.6; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+
+  .layout { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 340px 1fr; gap: 80px; }
+
+  /* left: sticky identity column */
+  .left { position: sticky; top: 0; align-self: start; padding: 56px 0; }
+  .left .portrait { width: 96px; aspect-ratio: 1 / 1; border-radius: 50%; background: var(--img); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--muted); margin-bottom: 28px; }
+  .left h1 { font-size: 52px; line-height: 1; margin: 0 0 20px; }
+  .left p { margin: 0 0 24px; }
+  .left dl { margin: 0 0 28px; font-size: 15px; }
+  .left dt { color: var(--muted); }
+  .left dd { margin: 0 0 12px; }
+  .left nav { display: flex; flex-direction: column; gap: 6px; font-size: 15px; padding-top: 20px; border-top: 1px solid var(--rule); }
+  .left nav a { color: var(--text); text-decoration: none; }
+  .left nav a:hover { color: var(--accent); }
+
+  /* right: scrolling content */
+  .right { padding: 56px 0 80px; }
+  h2 { font-size: 38px; line-height: 1.1; margin: 0 0 8px; }
+  .note { color: var(--muted); margin: 0 0 32px; }
+  section + section { margin-top: 104px; }
+
+  /* projects as horizontal rows; image side flips on the second one */
+  .row { display: grid; grid-template-columns: 260px 1fr; gap: 32px; padding: 32px 0; border-top: 1px solid var(--rule); }
+  .row.flip { grid-template-columns: 1fr 260px; }
+  .row.flip .thumb { order: 2; }
+  .row.big { grid-template-columns: 1fr; }
+  .row.big .thumb { aspect-ratio: 16 / 9; }
+  .thumb { background: var(--img); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; padding: 12px; text-align: center; }
+  .row h3 { font-size: 22px; font-weight: 600; margin: 0 0 2px; }
+  .row .sub { color: var(--muted); font-size: 15px; margin: 0 0 12px; }
+  .row p { margin: 0 0 10px; }
+
+  ul.more { margin: 0; padding: 0; list-style: none; }
+  ul.more li { padding: 10px 0; border-top: 1px solid var(--rule); }
+  ul.more li span { color: var(--muted); }
+
+  .job { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .job .when { color: var(--muted); font-size: 15px; }
+  .job b { font-weight: 600; }
+  .job p { margin: 4px 0 0; color: var(--muted); }
+
+  .hello p { max-width: 50ch; }
+  footer { margin-top: 80px; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 0; padding: 0 16px; }
+    .left { position: static; padding: 40px 0 16px; }
+    .left h1 { font-size: 44px; }
+    .left nav { flex-direction: row; flex-wrap: wrap; gap: 6px 18px; }
+    .right { padding-top: 40px; }
+    .row, .row.flip { grid-template-columns: 1fr; gap: 16px; }
+    .row.flip .thumb { order: 0; }
+    .job { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="left">
+    <div class="portrait">Portrait</div>
+    <h1 class="serif">Hi, I'm Ariana.</h1>
+    <p>Placeholder intro. I'm studying aerospace engineering at USC and looking for a summer 20XX internship. One more sentence about what you're working on.</p>
+    <dl>
+      <dt>Studying</dt><dd>Aerospace Engineering, USC Viterbi</dd>
+      <dt>Based in</dt><dd>Los Angeles, CA</dd>
+      <dt>Elsewhere</dt><dd><a href="#">GitHub</a> · <a href="#">LinkedIn</a></dd>
+    </dl>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#work">Where I've worked</a>
+      <a href="#">Resume (PDF)</a>
+      <a href="#hello">Say hello</a>
+    </nav>
+  </aside>
+
+  <main class="right">
+    <section id="projects">
+      <h2 class="serif">Things I've built</h2>
+      <p class="note">Notes on each project, newest first.</p>
+
+      <article class="row big">
+        <div class="thumb">Large photo: main project</div>
+        <div>
+          <h3>Project title one</h3>
+          <p class="sub">Student team · Fall 20XX</p>
+          <p>Placeholder description. Open with the question you were trying to answer, then what you built to answer it.</p>
+          <a href="#">Read how it works</a>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="thumb">CAD render</div>
+        <div>
+          <h3>Project title two</h3>
+          <p class="sub">AME XXX · Spring 20XX</p>
+          <p>Placeholder description in two or three sentences.</p>
+          <a href="#">Read how it works</a>
+        </div>
+      </article>
+
+      <article class="row flip">
+        <div class="thumb">Test data plot</div>
+        <div>
+          <h3>Project title three</h3>
+          <p class="sub">Personal · Summer 20XX</p>
+          <p>Placeholder description in two or three sentences.</p>
+          <a href="#">Read how it works</a>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="serif" style="font-size:30px;margin-bottom:16px;">More projects</h2>
+      <ul class="more">
+        <li><a href="#">Placeholder small project</a> <span>— one line on what it does</span></li>
+        <li><a href="#">Placeholder small project</a> <span>— one line on what it does</span></li>
+        <li><a href="#">Placeholder small project</a> <span>— one line on what it does</span></li>
+      </ul>
+    </section>
+
+    <section id="work">
+      <h2 class="serif" style="margin-bottom:24px;">Where I've worked</h2>
+      <div class="job"><span class="when">Summer 20XX</span><div><b>Company name</b>, placeholder intern title<p>One line on what you worked on.</p></div></div>
+      <div class="job"><span class="when">20XX – now</span><div><b>USC student org</b>, placeholder subteam role<p>One line on what you worked on.</p></div></div>
+      <div class="job"><span class="when">20XX</span><div><b>Research lab</b>, undergraduate researcher<p>One line on what you worked on.</p></div></div>
+    </section>
+
+    <section class="hello" id="hello">
+      <h2 class="serif">Say hello</h2>
+      <p>If you're hiring interns for summer 20XX, I'd like to hear from you. Email <a href="#">name@usc.edu</a>.</p>
+    </section>
+
+    <footer>© 20XX Ariana Marchan</footer>
+  </main>
+
+</div>
+</body>
+</html>

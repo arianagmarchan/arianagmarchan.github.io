@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup E — Night Shift</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #121212;
+    --panel: #1c1c1c;
+    --text: #efefef;
+    --muted: #9c9c9c;
+    --rule: #2d2d2d;
+    --accent: #d9a441; /* amber, links and the internship line */
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Hanken Grotesk", Helvetica, sans-serif; font-size: 17px; line-height: 1.6; }
+  a { color: var(--text); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 24px; padding: 24px 0; }
+  header a { text-decoration: none; }
+  header nav { display: flex; gap: 22px; color: var(--muted); font-size: 15px; }
+  header nav a { color: var(--muted); }
+
+  /* the projects lead: big image first, words after */
+  .lead-shot { margin-top: 24px; background: var(--panel); aspect-ratio: 21 / 9; display: flex; align-items: flex-end; justify-content: space-between; padding: 20px 24px; color: var(--muted); font-size: 14px; }
+
+  .intro { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; padding: 56px 0 0; }
+  .intro h1 { font-size: 44px; line-height: 1.1; font-weight: 700; margin: 0 0 20px; letter-spacing: -0.015em; }
+  .intro p { margin: 0 0 16px; color: #cfcfcf; max-width: 54ch; }
+  .intro .open { color: var(--accent); }
+  .side dl { margin: 0; }
+  .side dt { color: var(--muted); font-size: 14px; }
+  .side dd { margin: 0 0 18px; }
+  .side .portrait { background: var(--panel); aspect-ratio: 1 / 1; width: 120px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; margin-bottom: 24px; }
+
+  section { padding-top: 112px; }
+  h2 { font-size: 28px; font-weight: 700; margin: 0 0 32px; }
+
+  /* projects: one wide entry, then two side by side with different image ratios */
+  .p-wide { display: grid; grid-template-columns: 3fr 2fr; gap: 40px; align-items: center; padding-bottom: 56px; border-bottom: 1px solid var(--rule); }
+  .p-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 56px; }
+  .shot { background: var(--panel); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; padding: 12px; text-align: center; }
+  .p-wide .shot { aspect-ratio: 4 / 3; }
+  .p-pair article:first-child .shot { aspect-ratio: 1 / 1; }
+  .p-pair article:last-child .shot { aspect-ratio: 4 / 3; }
+  .p-pair article:last-child { margin-top: 80px; }
+  .proj h3 { font-size: 22px; margin: 16px 0 2px; font-weight: 700; }
+  .p-wide .proj h3 { margin-top: 0; font-size: 26px; }
+  .proj .sub { color: var(--muted); margin: 0 0 10px; font-size: 15px; }
+  .proj p { margin: 0 0 10px; color: #cfcfcf; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  ul.plain { list-style: none; margin: 0; padding: 0; }
+  ul.plain li { padding: 14px 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 16px; }
+  ul.plain li span { color: var(--muted); font-size: 15px; white-space: nowrap; }
+  ul.plain small { display: block; color: var(--muted); font-size: 15px; }
+
+  .hello { padding: 120px 0 56px; }
+  .hello h2 { font-size: 40px; margin-bottom: 12px; }
+  .hello a.mail { font-size: 24px; color: var(--accent); }
+  footer { border-top: 1px solid var(--rule); padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    .lead-shot { aspect-ratio: 4 / 3; }
+    .intro, .p-wide, .p-pair, .split { grid-template-columns: 1fr; gap: 32px; }
+    .intro h1 { font-size: 34px; }
+    .p-pair article:last-child { margin-top: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="#">Ariana Marchan</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#work">Work</a>
+      <a href="#">Resume</a>
+      <a href="#hello">Contact</a>
+    </nav>
+  </header>
+
+  <div class="lead-shot"><span>Wide photo: your best project in action</span><span>Project title one, 20XX</span></div>
+
+  <div class="intro">
+    <div>
+      <h1>Hi, I'm Ariana. I study aerospace engineering at USC.</h1>
+      <p>Placeholder intro. Tell people what's in the photo above, what you did on it, and what you'd like to work on next.</p>
+      <p class="open">Open to summer 20XX internships.</p>
+    </div>
+    <div class="side">
+      <div class="portrait">Portrait</div>
+      <dl>
+        <dt>Studying</dt><dd>B.S. Aerospace Engineering, USC</dd>
+        <dt>Based in</dt><dd>Los Angeles, CA</dd>
+        <dt>Elsewhere</dt><dd><a href="#">GitHub</a>, <a href="#">LinkedIn</a>, <a href="#">Resume</a></dd>
+      </dl>
+    </div>
+  </div>
+
+  <section id="projects">
+    <h2>Things I've built</h2>
+
+    <div class="p-wide">
+      <div class="shot">Photo or render for project one</div>
+      <div class="proj">
+        <h3>Project title one</h3>
+        <p class="sub">Student team · Fall 20XX</p>
+        <p>Placeholder description. What it is, what you owned, how it was tested, and one thing that went wrong and how you fixed it.</p>
+        <a href="#">Read how it works</a>
+      </div>
+    </div>
+
+    <div class="p-pair">
+      <article class="proj">
+        <div class="shot">Square: close-up of a part</div>
+        <h3>Project title two</h3>
+        <p class="sub">AME XXX · Spring 20XX</p>
+        <p>Placeholder description in two sentences.</p>
+        <a href="#">Read how it works</a>
+      </article>
+      <article class="proj">
+        <div class="shot">Plot or simulation output</div>
+        <h3>Project title three</h3>
+        <p class="sub">Personal · Summer 20XX</p>
+        <p>Placeholder description in two sentences.</p>
+        <a href="#">Read how it works</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="split">
+      <div>
+        <h2>Where I've worked</h2>
+        <ul class="plain">
+          <li><div>Company name<small>Placeholder intern title</small></div><span>Summer 20XX</span></li>
+          <li><div>USC student org<small>Placeholder subteam role</small></div><span>20XX – now</span></li>
+          <li><div>Research lab<small>Undergraduate researcher</small></div><span>20XX</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>More projects</h2>
+        <ul class="plain">
+          <li><a href="#">Placeholder small project</a><span>20XX</span></li>
+          <li><a href="#">Placeholder small project</a><span>20XX</span></li>
+          <li><a href="#">Placeholder small project</a><span>20XX</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="hello" id="hello">
+    <h2>Say hello</h2>
+    <p style="color:var(--muted);margin:0 0 16px;">Email is the best way to reach me.</p>
+    <a class="mail" href="#">name@usc.edu</a>
+  </div>
+
+  <footer>© 20XX Ariana Marchan</footer>
+</div>
+</body>
+</html>

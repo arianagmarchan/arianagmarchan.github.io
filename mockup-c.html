@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup C — Photo Wall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #141414;
+    --muted: #6b6b6b;
+    --rule: #dcdcdc;
+    --img: #e6e6e6;
+    --img-dark: #cfcfcf;
+    --accent: #1f6f4a; /* dark green, used for the one call to action and link hovers */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Schibsted Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  a { color: var(--text); }
+  a:hover { color: var(--accent); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  header { display: flex; justify-content: space-between; padding: 24px 0; font-size: 16px; }
+  header nav { display: flex; gap: 24px; }
+  header a { text-decoration: none; }
+
+  .statement { padding: 72px 0 80px; }
+  .statement h1 {
+    font-size: clamp(40px, 7.4vw, 104px);
+    line-height: 0.98; letter-spacing: -0.03em; font-weight: 700;
+    margin: 0; max-width: 14ch;
+  }
+  .statement .under { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-top: 40px; flex-wrap: wrap; }
+  .statement p { max-width: 460px; margin: 0; color: var(--muted); font-size: 19px; }
+  .cta { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 12px 20px; font-weight: 500; }
+  .cta:hover { color: #fff; background: #185a3c; }
+
+  /* asymmetric project wall: sizes vary on purpose */
+  .wall { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+  .tile { text-decoration: none; display: block; }
+  .tile .img { background: var(--img); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; padding: 16px; text-align: center; }
+  .tile:nth-child(2) .img, .tile:nth-child(4) .img { background: var(--img-dark); }
+  .tile .cap { display: flex; justify-content: space-between; gap: 16px; padding-top: 12px; }
+  .tile .cap b { font-weight: 500; }
+  .tile .cap span { color: var(--muted); font-size: 15px; white-space: nowrap; }
+
+  .t1 { grid-column: 1 / 8; } .t1 .img { aspect-ratio: 4 / 3; }
+  .t2 { grid-column: 8 / 13; align-self: end; } .t2 .img { aspect-ratio: 4 / 5; }
+  .t3 { grid-column: 2 / 6; margin-top: 40px; } .t3 .img { aspect-ratio: 1 / 1; }
+  .t4 { grid-column: 6 / 13; margin-top: 40px; } .t4 .img { aspect-ratio: 16 / 9; }
+
+  .about { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; padding: 140px 0 0; }
+  .about .portrait { background: var(--img); aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
+  .about h2 { font-size: 36px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 24px; font-weight: 700; }
+  .about p { margin: 0 0 16px; max-width: 56ch; }
+
+  .cv { margin-top: 48px; border-top: 2px solid var(--text); }
+  .cv-row { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 16px; }
+  .cv-row .k { color: var(--muted); }
+  .cv-row .d { text-align: right; color: var(--muted); }
+
+  footer { margin-top: 140px; padding: 40px 0 48px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  footer .big { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    header nav { gap: 14px; }
+    .statement { padding: 40px 0 56px; }
+    .wall { grid-template-columns: 1fr; gap: 32px; }
+    .t1, .t2, .t3, .t4 { grid-column: auto; margin-top: 0; }
+    .about { grid-template-columns: 1fr; gap: 32px; padding-top: 88px; }
+    .about .portrait { max-width: 320px; }
+    .cv-row { grid-template-columns: 1fr; gap: 2px; }
+    .cv-row .d { text-align: left; }
+    footer { margin-top: 88px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="#">Ariana Marchan</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#">Resume</a>
+    </nav>
+  </header>
+
+  <section class="statement">
+    <h1>Aerospace engineering student building hardware at USC.</h1>
+    <div class="under">
+      <p>Placeholder sentence about what you design and test, and the kind of team you want to join this summer.</p>
+      <a class="cta" href="#">Download resume</a>
+    </div>
+  </section>
+
+  <section class="wall" id="work">
+    <a class="tile t1" href="#">
+      <div class="img">Large photo: you with the main build</div>
+      <div class="cap"><b>Project title one</b><span>20XX</span></div>
+    </a>
+    <a class="tile t2" href="#">
+      <div class="img">Tall photo: close-up of a part</div>
+      <div class="cap"><b>Project title two</b><span>20XX</span></div>
+    </a>
+    <a class="tile t3" href="#">
+      <div class="img">Square: CAD render</div>
+      <div class="cap"><b>Project title three</b><span>20XX</span></div>
+    </a>
+    <a class="tile t4" href="#">
+      <div class="img">Wide: test day or launch photo</div>
+      <div class="cap"><b>Project title four</b><span>20XX</span></div>
+    </a>
+  </section>
+
+  <section class="about" id="about">
+    <div class="portrait">Portrait photo</div>
+    <div>
+      <h2>A little about me</h2>
+      <p>Placeholder paragraph. Where you're from, how you got into aerospace, and what you spend most of your time on at USC.</p>
+      <p>Placeholder paragraph. What you want to work on in an internship and what you're learning right now.</p>
+
+      <div class="cv">
+        <div class="cv-row"><span class="k">Experience</span><span>Role title, Company</span><span class="d">Summer 20XX</span></div>
+        <div class="cv-row"><span class="k">Team</span><span>Subteam role, USC student org</span><span class="d">20XX – now</span></div>
+        <div class="cv-row"><span class="k">Research</span><span>Undergraduate researcher, Lab name</span><span class="d">20XX</span></div>
+        <div class="cv-row"><span class="k">Education</span><span>B.S. Aerospace Engineering, USC</span><span class="d">Class of 20XX</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="big" href="#">name@usc.edu</a>
+    <span><a href="#">LinkedIn</a> &nbsp; <a href="#">GitHub</a></span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup D — Hello Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1b1b1b;
+    --muted: #666666;
+    --rule: #e4e4e4;
+    --img: #ebebeb;
+    --accent: #1d4e89; /* navy, for links and the carousel counter */
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Karla", Helvetica, sans-serif; font-size: 18px; line-height: 1.6; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+  header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 24px; padding: 28px 0; }
+  header .name { font-weight: 700; color: var(--text); text-decoration: none; }
+  header nav { display: flex; gap: 22px; font-size: 16px; }
+  header nav a { color: var(--text); text-decoration: none; }
+  header nav a:hover { color: var(--accent); }
+
+  .hero { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: center; padding: 64px 0 48px; }
+  .portrait { background: var(--img); aspect-ratio: 1 / 1; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
+  .hero h1 { font-size: 56px; line-height: 1.05; margin: 0 0 16px; font-weight: 700; letter-spacing: -0.02em; }
+  .hero p { margin: 0; max-width: 52ch; }
+
+  .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .meta h4 { margin: 0 0 4px; font-size: 15px; font-weight: 500; color: var(--muted); }
+  .meta p { margin: 0; }
+
+  section { padding-top: 88px; }
+  h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; }
+  .lead { color: var(--muted); margin: 0 0 32px; }
+
+  /* carousel */
+  .carousel { position: relative; }
+  .slides { display: flex; overflow: hidden; }
+  .slide { flex: 0 0 100%; aspect-ratio: 16 / 9; background: var(--img); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 15px; transition: transform .35s ease; }
+  .carousel-bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 0; font-size: 15px; }
+  .carousel-bar .cap { color: var(--muted); }
+  .carousel-bar .ctrl { display: flex; align-items: center; gap: 12px; }
+  .carousel-bar button { font: inherit; background: none; border: 1px solid var(--rule); width: 36px; height: 36px; cursor: pointer; color: var(--text); }
+  .carousel-bar button:hover { border-color: var(--text); }
+  .carousel-bar .count { color: var(--accent); min-width: 48px; text-align: center; }
+
+  .projects { margin-top: 48px; }
+  .project { padding: 28px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 140px; gap: 24px; }
+  .project h3 { font-size: 23px; margin: 0; font-weight: 700; }
+  .project .sub { margin: 0 0 10px; color: var(--muted); }
+  .project p { margin: 0 0 10px; }
+  .project .when { color: var(--muted); font-size: 15px; text-align: right; }
+
+  ul.more { margin: 0; padding-left: 20px; }
+  ul.more li { margin-bottom: 6px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  th { text-align: left; font-weight: 500; color: var(--muted); padding: 0 16px 10px 0; border-bottom: 1px solid var(--text); font-size: 15px; }
+  td { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td:last-child { white-space: nowrap; color: var(--muted); }
+
+  .hello { padding: 96px 0 40px; }
+  .hello p { max-width: 52ch; }
+  footer { padding: 24px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); }
+
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+    .portrait { width: 140px; }
+    .hero h1 { font-size: 40px; }
+    .meta { grid-template-columns: 1fr; gap: 14px; }
+    .project { grid-template-columns: 1fr; gap: 0; }
+    .project .when { text-align: left; order: -1; }
+    th:nth-child(2), td:nth-child(2) { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="name" href="#">Ariana Marchan</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#work">Work</a>
+      <a href="#">Resume</a>
+      <a href="#hello">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="portrait">Portrait</div>
+    <div>
+      <h1>Hi, I'm Ariana.</h1>
+      <p>Placeholder intro. I'm an aerospace engineering student at USC. Say in a sentence or two what you build and what you'd like to work on this summer.</p>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div><h4>Studying</h4><p>Aerospace Engineering, USC</p></div>
+    <div><h4>Based in</h4><p>Los Angeles, CA</p></div>
+    <div><h4>Elsewhere</h4><p><a href="#">GitHub</a> · <a href="#">LinkedIn</a></p></div>
+  </div>
+
+  <section id="projects">
+    <h2>Things I've built</h2>
+    <p class="lead">A few projects from classes, teams and my own time.</p>
+
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <div class="slide">Photo 1: hardware on the bench</div>
+        <div class="slide">Photo 2: CAD render</div>
+        <div class="slide">Photo 3: test day</div>
+      </div>
+      <div class="carousel-bar">
+        <span class="cap" id="cap">Project title one</span>
+        <span class="ctrl">
+          <button id="prev" aria-label="Previous photo">&larr;</button>
+          <span class="count" id="count">1 of 3</span>
+          <button id="next" aria-label="Next photo">&rarr;</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="projects">
+      <article class="project">
+        <div>
+          <h3>Project title one</h3>
+          <p class="sub">One-line subtitle: what it is</p>
+          <p>Placeholder description. The problem, your part in it, and how you tested it.</p>
+          <a href="#">Read how it works</a>
+        </div>
+        <div class="when">Fall 20XX<br>Student team</div>
+      </article>
+      <article class="project">
+        <div>
+          <h3>Project title two</h3>
+          <p class="sub">One-line subtitle: what it is</p>
+          <p>Placeholder description. The problem, your part in it, and how you tested it.</p>
+          <a href="#">Read how it works</a>
+        </div>
+        <div class="when">Spring 20XX<br>AME XXX</div>
+      </article>
+      <article class="project">
+        <div>
+          <h3>Project title three</h3>
+          <p class="sub">One-line subtitle: what it is</p>
+          <p>Placeholder description. The problem, your part in it, and how you tested it.</p>
+          <a href="#">Read how it works</a>
+        </div>
+        <div class="when">Summer 20XX<br>Personal</div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="font-size:24px;margin-bottom:16px;">More projects</h2>
+    <ul class="more">
+      <li><a href="#">Placeholder small project</a>, one line on what it does</li>
+      <li><a href="#">Placeholder small project</a>, one line on what it does</li>
+      <li><a href="#">Placeholder small project</a>, one line on what it does</li>
+    </ul>
+  </section>
+
+  <section id="work">
+    <h2 style="margin-bottom:24px;">Where I've worked</h2>
+    <table>
+      <thead><tr><th>Where</th><th>Role</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>Company name</td><td>Placeholder intern title</td><td>Summer 20XX</td></tr>
+        <tr><td>USC student org</td><td>Placeholder subteam role</td><td>20XX – now</td></tr>
+        <tr><td>Research lab</td><td>Undergraduate researcher</td><td>20XX</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="hello" id="hello">
+    <h2>Say hello</h2>
+    <p>I'm looking for a summer 20XX internship. If your team has an opening, email me at <a href="#">name@usc.edu</a> or grab my <a href="#">resume</a>.</p>
+  </div>
+
+  <footer>© 20XX Ariana Marchan</footer>
+</div>
+
+<script>
+  (function () {
+    var caps = ["Project title one", "Project title two", "Project title three"];
+    var slides = document.querySelectorAll(".slide");
+    var i = 0;
+    function show() {
+      slides.forEach(function (s) { s.style.transform = "translateX(" + (-100 * i) + "%)"; });
+      document.getElementById("count").textContent = (i + 1) + " of " + slides.length;
+      document.getElementById("cap").textContent = caps[i];
+    }
+    document.getElementById("prev").onclick = function () { i = (i - 1 + slides.length) % slides.length; show(); };
+    document.getElementById("next").onclick = function () { i = (i + 1) % slides.length; show(); };
+  })();
+</script>
+</body>
+</html>

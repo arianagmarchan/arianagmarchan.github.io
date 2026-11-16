@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup A — Notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5f5f5f;
+    --rule: #e3e3e3;
+    --img: #ececec;
+    --accent: #9b1c1c; /* deep cardinal, used for links only */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+
+  header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px; padding: 32px 0 0; }
+  header .name { font-weight: 600; color: var(--text); text-decoration: none; }
+  header nav { display: flex; gap: 20px; font-size: 17px; }
+  header nav a { color: var(--muted); text-decoration: none; }
+  header nav a:hover { color: var(--text); }
+
+  .intro { padding: 88px 0 48px; }
+  .intro h1 { font-size: 44px; line-height: 1.15; font-weight: 500; margin: 0 0 24px; }
+  .intro p { margin: 0 0 16px; }
+
+  dl.facts { display: grid; grid-template-columns: 140px 1fr; gap: 6px 16px; margin: 0; padding: 24px 0 0; border-top: 1px solid var(--rule); font-size: 17px; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; }
+
+  section { padding: 56px 0 0; }
+  h2 { font-size: 26px; font-weight: 500; margin: 0 0 32px; }
+
+  .project { margin: 0 0 64px; }
+  .project .img { background: var(--img); aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 15px; font-style: italic; margin-bottom: 20px; }
+  .project h3 { font-size: 23px; font-weight: 600; margin: 0 0 2px; }
+  .project .sub { color: var(--muted); margin: 0 0 12px; font-size: 17px; }
+  .project p { margin: 0 0 12px; }
+
+  ul.more { padding-left: 20px; margin: 0; }
+  ul.more li { margin-bottom: 6px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  td { padding: 12px 0; border-top: 1px solid var(--rule); vertical-align: top; }
+  td:last-child { text-align: right; color: var(--muted); white-space: nowrap; padding-left: 16px; }
+  td .role { display: block; color: var(--muted); }
+
+  footer { padding: 72px 0 64px; }
+  footer p { margin: 0 0 8px; }
+  footer .small { color: var(--muted); font-size: 15px; margin-top: 40px; }
+
+  @media (max-width: 520px) {
+    body { font-size: 18px; }
+    .intro { padding-top: 56px; }
+    .intro h1 { font-size: 34px; }
+    dl.facts { grid-template-columns: 1fr; }
+    dl.facts dd { margin-bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="name" href="#">Ariana Marchan</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#work">Experience</a>
+      <a href="#">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <h1>I study aerospace engineering at USC and build things that fly, or try to.</h1>
+    <p>Placeholder intro. Two or three sentences about what you work on right now: the student team you're on, the kind of problems you like, and what you want to learn next. Keep it in your own voice.</p>
+    <p>I'm looking for a summer internship in [structures / propulsion / GNC / test]. My <a href="#">resume is here</a>.</p>
+    <dl class="facts">
+      <dt>Studying</dt><dd>B.S. Aerospace Engineering, USC Viterbi, class of 20XX</dd>
+      <dt>Based in</dt><dd>Los Angeles, CA</dd>
+      <dt>Elsewhere</dt><dd><a href="#">LinkedIn</a>, <a href="#">GitHub</a>, <a href="#">GrabCAD</a></dd>
+    </dl>
+  </div>
+
+  <section id="projects">
+    <h2>Things I've worked on</h2>
+
+    <article class="project">
+      <div class="img">Photo of the hardware on the test stand</div>
+      <h3>Project title one</h3>
+      <p class="sub">Student rocket team, avionics bay redesign · Fall 20XX</p>
+      <p>Placeholder description. What the problem was, what you were responsible for, and what tools you used (SolidWorks, ANSYS, MATLAB). One concrete result goes here once you have it.</p>
+      <a href="#">Read the write-up</a>
+    </article>
+
+    <article class="project">
+      <div class="img">CAD render or FEA contour plot</div>
+      <h3>Project title two</h3>
+      <p class="sub">Course project, AME XXX · Spring 20XX</p>
+      <p>Placeholder description. Explain the approach in plain language, then link to the report for anyone who wants the details.</p>
+      <a href="#">Read the write-up</a>
+    </article>
+
+    <h2 style="font-size:21px;margin-bottom:16px;">Smaller things</h2>
+    <ul class="more">
+      <li>Placeholder: a MATLAB trajectory script, one line on what it does</li>
+      <li>Placeholder: a 3D-printed fixture for a lab</li>
+      <li>Placeholder: a hackathon or design competition entry</li>
+    </ul>
+  </section>
+
+  <section id="work">
+    <h2>Where I've worked</h2>
+    <table>
+      <tr><td>Company or lab name<span class="role">Role title, team</span></td><td>Summer 20XX</td></tr>
+      <tr><td>USC student organization<span class="role">Subteam lead</span></td><td>20XX – now</td></tr>
+      <tr><td>Research group<span class="role">Undergraduate researcher</span></td><td>20XX</td></tr>
+    </table>
+  </section>
+
+  <footer id="contact">
+    <h2>Get in touch</h2>
+    <p>The fastest way to reach me is email: <a href="#">name@usc.edu</a>.</p>
+    <p class="small">Last updated Month 20XX.</p>
+  </footer>
+
+</div>
+</body>
+</html>
