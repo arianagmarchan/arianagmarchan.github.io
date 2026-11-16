@@ -2,8 +2,19 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import GlassFolder, { type FolderFile } from "@/components/ui/glass-folder-cards";
+import GlassFolder, { type ArtRecipe, type FolderFile } from "@/components/ui/glass-folder-cards";
 import { interests, profile, projects } from "@/lib/content";
+
+// Night-city light streaks in the site's own colours: navy, cyan, amber and pink.
+const CITY_ART: ArtRecipe = {
+  style: "streak",
+  colors: ["#070a12", "#1b2a4a", "#5cc8ff", "#0e1424", "#f4a940", "#ff6b8b", "#2a1730"],
+  scale: 0.7,
+  warp: 1.5,
+  angle: -0.4,
+  gloss: 0.25,
+  veins: 0,
+};
 
 // A folder shows its last four files, frontmost last, so the order below is back to front.
 const projectFiles: FolderFile[] = projects.slice(0, 4).reverse().map((p) => ({
@@ -58,7 +69,8 @@ export function HomeFolders() {
       <GlassFolder
         label="Resume"
         meta="Updated Nov 2026"
-        art="glacier"
+        tone="dark"
+        art={CITY_ART}
         seed={7}
         files={resumeFiles}
         action="more"

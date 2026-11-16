@@ -21,16 +21,19 @@ export const profile = {
   graduation: "May 2029",
   photo: { src: "/images/ariana.jpg", alt: "Ariana Marchan at the SWE National Conference in Boston" } as Photo,
   about: [
-    "I study aerospace and mechanical engineering at USC Viterbi. Most of my time goes into building things: landing gear for our AeroDesign competition aircraft, hydrofoils for a small autonomous boat, and lately a lunar rover concept with NASA's L'SPACE program.",
-    "I like the part of engineering where a design meets the real world. Laying up carbon fiber, loading a part until it breaks, figuring out why, and changing the geometry so it doesn't break the same way next time.",
-    "Outside of class I help run professional events for USC Women in Engineering, work as an RA, and operate cameras for graduate engineering courses, which means I get to sit in on lectures I'm not taking yet.",
+    "I study aerospace and mechanical engineering at USC Viterbi. Most of my hands-on time goes into USC AeroDesign, where I build the landing gear for our competition aircraft: carbon fiber and fiberglass layups, load tests, and the last checks before it flies. This semester I also joined NASA's L'SPACE program as a mechanical engineer on a lunar rover concept.",
+    "What pulls me toward aerospace is making space exploration more sustainable. It's why I'm drawn to research and long-duration mission design, and it shapes the projects I pick.",
+    "Outside of engineering I'm a pretty creative person. I play steelpan and piano, I'm happiest on a tennis court, and I'll never turn down all-you-can-eat sushi.",
   ],
+  /** "What I'm up to", drawn as stops on a transit line. `color` picks the stop's light. */
   now: [
-    { what: "Sizing wheels and power for a lunar rover concept", where: "NASA L'SPACE Mission Concept Academy" },
-    { what: "Building and testing competition-aircraft landing gear", where: "USC AeroDesign" },
-    { what: "Designing an animatronic pumpkin that dodges people reaching for candy", where: "Makers at USC" },
-    { what: "Back from the SWE National Conference in Boston", where: "November 2026" },
-  ],
+    { what: "Sizing wheels and power for a lunar rover concept", where: "NASA L'SPACE Mission Concept Academy", color: "sky" },
+    { what: "Building and testing competition-aircraft landing gear", where: "USC AeroDesign", color: "brand" },
+    { what: "Designing an animatronic pumpkin that dodges people reaching for candy", where: "Makers at USC", color: "rose" },
+    { what: "Back from the SWE National Conference in Boston (#WE26)", where: "November 2026", color: "mint" },
+  ] as { what: string; where: string; color: "sky" | "brand" | "rose" | "mint" }[],
+  /** The hero's last line, shown as the subway doors finish opening. */
+  heroTagline: "Next stop: aerospace engineering at USC.",
   lookingFor: "Looking for a Summer 2027 internship in aerospace or mechanical engineering.",
 };
 
@@ -164,50 +167,94 @@ export type Interest = {
   details: string[];
   body: string[];
   photos: Photo[];
+  /** The light this interest's page is lit with. */
+  color: "brand" | "sky" | "rose" | "mint";
+  /** A song snippet to play on the record player (the music plate). */
+  track?: Track;
   /** Marks text you still need to write. */
   draft?: boolean;
 };
 
+export type Track = {
+  title: string;
+  artist: string;
+  album: string;
+  /** Apple's official 30-second preview of the song. */
+  preview: string;
+  cover: string;
+  spotify: string;
+  note: string;
+};
+
 export const interests: Interest[] = [
+  {
+    slug: "music",
+    name: "Music",
+    tag: "On repeat",
+    tier: 4,
+    color: "rose",
+    plate: "/interests/music.svg",
+    blurb: "Steelpan, piano, and one song I've played more than 50 times.",
+    details: ["Steelpan", "Piano", "Top track: Drive"],
+    body: [
+      "I play steelpan, the instrument Trinidad and Tobago gave the world, and piano.",
+      "My top track right now is Drive by Audrey Hobert. I've listened to it over 50 times and I'm not stopping. Press play on the record to hear a bit of it.",
+    ],
+    track: {
+      title: "Drive",
+      artist: "Audrey Hobert",
+      album: "Who's the Clown?",
+      preview:
+        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ab/53/c8/ab53c82d-ed0b-0660-ee98-208d3415fd9c/mzaf_15398374809406676266.plus.aac.p.m4a",
+      cover:
+        "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4f/22/e9/4f22e913-135c-4381-71e6-943166042ac0/196873025001.jpg/300x300bb.jpg",
+      spotify: "https://open.spotify.com/search/Drive%20Audrey%20Hobert",
+      note: "50+ plays and counting",
+    },
+    photos: [],
+  },
+  {
+    slug: "sushi",
+    name: "Sushi",
+    tag: "All you can eat",
+    tier: 5,
+    color: "brand",
+    plate: "/sushi/dragon-roll.webp",
+    blurb: "A good dragon roll, at my favorite all-you-can-eat spot in DTLA.",
+    details: ["Dragon roll", "All you can eat", "Downtown LA"],
+    body: [
+      "There's an all-you-can-eat sushi place in downtown LA that I keep going back to, and my order always starts with a dragon roll: shrimp tempura inside, avocado on top, eel sauce over all of it.",
+      "It's also why the interests on this site come around on a sushi belt.",
+    ],
+    photos: [],
+  },
   {
     slug: "volunteering",
     name: "Volunteering",
     tag: "Since 2021",
     tier: 3,
+    color: "rose",
     plate: "/interests/volunteering.svg",
-    blurb: "From Rotary service projects in Trinidad to a hospital radio studio in Orlando.",
-    details: ["Interact Club president", "Seacrest Studios", "YWCA youth board"],
+    blurb: "From Rotary service projects in Trinidad to food banks and robotics kids in LA.",
+    details: ["Interact Club president", "Viterbi Impact", "Seacrest Studios", "YWCA youth board"],
     body: [
-      "I led the Interact Club at St. Joseph's Convent, Rotary's youth service club, first as vice president and then as president. The club had 50+ active members, won a District Citation Award for 2022–2023, contributed to Polio Plus every year, and showed up for the International Coastal Cleanup, Hike and Plant, and the Rotary Youth Leadership Awards.",
-      "In the summer of 2025 I volunteered at Seacrest Studios, a broadcast studio inside Arnold Palmer Hospital for Children in Orlando. I helped run 5+ hospital events, edited 6 video segments, appeared on the morning show every other week, and co-hosted a talent show for 15+ patients.",
-      "Before that I sat on the YWCA youth board, bringing a young person's view into board discussions and helping with events and outreach.",
+      "Service is a big part of how I think about engineering. It started with the Interact Club at St. Joseph's Convent, Rotary's youth service club, which I led first as vice president and then as president. The club had 50+ active members, won a District Citation Award for 2022–2023, gave to Polio Plus every year, and turned out for the International Coastal Cleanup, Hike and Plant, and the Rotary Youth Leadership Awards.",
+      "At USC I volunteer through Viterbi Impact: packing food boxes for families at the Los Angeles Regional Food Bank, and helping young programmers and engineers get ready for SOLA Robotics' SOLA CON.",
+      "In the summer of 2025 I volunteered at Seacrest Studios, a broadcast studio inside Arnold Palmer Hospital for Children in Orlando. I helped run 5+ hospital events, edited 6 video segments, appeared on the morning show every other week, and co-hosted a talent show for 15+ patients. Before that I sat on the YWCA youth board.",
     ],
     photos: [],
   },
   {
-    slug: "music",
-    name: "Music",
-    tag: "Always on",
+    slug: "tennis",
+    name: "Tennis",
+    tag: "Game, set",
     tier: 2,
-    plate: "/interests/music.svg",
-    blurb: "Placeholder: what you play, listen to, or make.",
-    details: ["Placeholder", "Placeholder"],
+    color: "mint",
+    plate: "/interests/tennis.svg",
+    blurb: "I love spending time on the tennis court.",
+    details: ["On the court whenever I can"],
     body: [
-      "Placeholder. Write a few sentences about music here: what you play or listen to, how long you've been at it, and what it means to you. Edit this entry in site/lib/content.ts.",
-    ],
-    photos: [],
-    draft: true,
-  },
-  {
-    slug: "sushi",
-    name: "Sushi",
-    tag: "Weekly",
-    tier: 5,
-    plate: "/sushi/salmon-nigiri.webp",
-    blurb: "Placeholder: your go-to order and your favorite spot.",
-    details: ["Placeholder", "Placeholder"],
-    body: [
-      "Placeholder. This whole page runs on a sushi belt for a reason. Say what you always order, where you go, and anything you've learned to make yourself. Edit this entry in site/lib/content.ts.",
+      "I love spending time on the tennis court. Add a line here about how you play, who you play with, or your best shot. Edit this entry in site/lib/content.ts.",
     ],
     photos: [],
     draft: true,
@@ -216,12 +263,14 @@ export const interests: Interest[] = [
     slug: "astronomy",
     name: "Astronomy",
     tag: "Since 2021",
-    tier: 4,
+    tier: 1,
+    color: "sky",
     plate: "/interests/astronomy.svg",
     blurb: "I ran my school's astronomy club for three years.",
     details: ["Club president", "50+ members", "T&T Astronomy Quiz"],
     body: [
       "From 2021 to 2024 I was president of the Astronomy Club at St. Joseph's Convent. We met every week, ran workshops and discussions on whatever was happening in the sky, and entered the Trinidad and Tobago Astronomy Quiz every year.",
+      "In 2024 I took Embry-Riddle's pre-college spaceflight course, covering orbital mechanics, propulsion and launch vehicles, and worked on a capstone about sending women to Mars.",
     ],
     photos: [],
   },
@@ -229,12 +278,13 @@ export const interests: Interest[] = [
     slug: "broadcast",
     name: "Broadcast & video",
     tag: "On air",
-    tier: 1,
+    tier: 3,
+    color: "brand",
     plate: "/interests/broadcast.svg",
     blurb: "Live production, from a hospital studio to graduate lecture halls.",
-    details: ["Camera & network ops", "Video editing", "Live shows"],
+    details: ["Multi-camera production", "Live switching", "Video editing"],
     body: [
-      "At Seacrest Studios I edited and produced video segments, wrote show notes and appeared on the morning broadcast. At USC I operate cameras and networked AV systems for graduate engineering courses, which keeps me calm when something breaks live and lets me listen in on coursework a few years ahead of mine.",
+      "At Seacrest Studios I edited and produced video segments, wrote show notes and appeared on the morning broadcast. At USC I work in a multi-camera studio for graduate engineering courses: framing, live switching, audio and monitoring, which keeps me calm when something breaks live and lets me listen in on coursework a few years ahead of mine.",
     ],
     photos: [],
   },

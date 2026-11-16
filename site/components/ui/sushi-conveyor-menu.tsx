@@ -56,6 +56,8 @@ export interface SushiConveyorMenuProps extends React.ComponentProps<"section"> 
   /** Price label per tier for the legend. Derived from the items when omitted. */
   legend?: { [tier: number]: string };
   labels?: SushiConveyorMenuLabels;
+  /** Extra content for a plate's dialog, shown under its details (added for this site). */
+  renderDialogExtra?: (item: ConveyorDish) => React.ReactNode;
 }
 
 const SPACING = 1.35;
@@ -241,6 +243,7 @@ export function SushiConveyorMenu({
   onAdd,
   legend,
   labels = DEFAULT_LABELS,
+  renderDialogExtra,
   className,
   ref,
   ...rest
@@ -932,13 +935,15 @@ export function SushiConveyorMenu({
           onLift={onLift}
           onAdd={onDialogAdd}
           onClose={onDialogClose}
+          extra={renderDialogExtra?.(items[openIndex])}
         />
       )}
     </section>
   );
 }
 
-function DishDialog({ uid, item, index, total, labels, reduced, broken, source, onLift, onAdd, onClose }: {
+function DishDialog({ uid, item, index, total, labels, reduced, broken, source, onLift, onAdd, onClose, extra }: {
+  extra?: React.ReactNode;
   uid: string;
   item: ConveyorDish;
   index: number;
@@ -1076,6 +1081,7 @@ function DishDialog({ uid, item, index, total, labels, reduced, broken, source, 
               {item.details.map((detail) => <li key={detail} className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">{detail}</li>)}
             </ul>
           )}
+          {extra}
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
             <p className="text-2xl font-semibold tabular-nums tracking-tight">{item.price}</p>
             <button type="button" data-add onClick={add} className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background shadow-sm outline-none transition-[translate,box-shadow] hover:-translate-y-px hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none">

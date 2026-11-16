@@ -15,6 +15,13 @@ export async function generateMetadata(props: PageProps<"/projects/[slug]">): Pr
   return { title: project?.title ?? "Project" };
 }
 
+const chips = [
+  "border-sky/40 bg-sky/10 text-sky",
+  "border-brand/40 bg-brand/10 text-brand",
+  "border-rose/40 bg-rose/10 text-rose",
+  "border-[#5fe3b0]/40 bg-[#5fe3b0]/10 text-[#5fe3b0]",
+];
+
 export default async function ProjectPage(props: PageProps<"/projects/[slug]">) {
   const { slug } = await props.params;
   const index = projects.findIndex((p) => p.slug === slug);
@@ -23,27 +30,37 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
   const next = projects[(index + 1) % projects.length];
 
   return (
-    <PageShell title={project.title} intro={project.summary} back={{ href: "/projects", label: "All projects" }}>
-      <dl className="grid gap-x-10 gap-y-4 border-y border-border py-6 sm:grid-cols-3">
-        <div><dt className="text-sm text-muted-foreground">Role</dt><dd className="mt-1">{project.role}</dd></div>
-        <div><dt className="text-sm text-muted-foreground">Where</dt><dd className="mt-1">{project.org}</dd></div>
-        <div><dt className="text-sm text-muted-foreground">When</dt><dd className="mt-1">{project.dates}</dd></div>
+    <PageShell title={project.title} tint="cool" intro={project.summary} back={{ href: "/projects/", label: "All projects" }}>
+      <dl className="glow-card grid gap-x-10 gap-y-5 p-6 sm:grid-cols-3">
+        <div><dt className="text-sm text-sky">Role</dt><dd className="mt-1 text-white">{project.role}</dd></div>
+        <div><dt className="text-sm text-brand">Where</dt><dd className="mt-1 text-white">{project.org}</dd></div>
+        <div><dt className="text-sm text-rose">When</dt><dd className="mt-1 text-white">{project.dates}</dd></div>
       </dl>
 
-      <h2 className="mt-12 text-xl font-semibold tracking-tight">What I did</h2>
-      <ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed marker:text-muted-foreground">
-        {project.points.map((point) => <li key={point}>{point}</li>)}
+      <h2 className="mt-14 text-2xl font-bold tracking-tight">What I did</h2>
+      <ul className="mt-5 space-y-4 leading-relaxed text-white/85">
+        {project.points.map((point, i) => (
+          <li key={point} className="flex gap-4">
+            <span className={`mt-2.5 size-2 shrink-0 rounded-full ${["bg-sky", "bg-brand", "bg-rose", "bg-[#5fe3b0]"][i % 4]}`} />
+            <span>{point}</span>
+          </li>
+        ))}
       </ul>
 
-      <h2 className="mt-12 text-xl font-semibold tracking-tight">Tools and methods</h2>
-      <p className="mt-3 text-muted-foreground">{project.tools.join(" · ")}</p>
+      <h2 className="mt-14 text-2xl font-bold tracking-tight">Tools and methods</h2>
+      <ul className="mt-5 flex flex-wrap gap-2">
+        {project.tools.map((tool, i) => (
+          <li key={tool} className={`rounded-full border px-3 py-1 text-sm ${chips[i % chips.length]}`}>{tool}</li>
+        ))}
+      </ul>
 
       <PhotoGallery photos={project.photos} />
 
-      <div className="mt-16 border-t border-border pt-6">
-        <Link href={`/projects/${next.slug}`} className="group inline-block">
+      <div className="mt-16">
+        <div className="rail" />
+        <Link href={`/projects/${next.slug}/`} className="group mt-6 inline-block">
           <span className="block text-sm text-muted-foreground">Next project</span>
-          <span className="mt-1 block text-xl font-semibold tracking-tight group-hover:text-brand">{next.title} →</span>
+          <span className="mt-1 block font-display text-2xl font-bold tracking-tight transition-colors group-hover:text-sky">{next.title} →</span>
         </Link>
       </div>
     </PageShell>

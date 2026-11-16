@@ -23,7 +23,7 @@ export function CopyEmail({ email }: { email: string }) {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm transition-colors hover:border-foreground"
+      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-rose px-5 py-2.5 font-medium text-[#1a1104] transition-transform hover:-translate-y-0.5"
     >
       {copied ? <Check aria-hidden="true" className="size-4" /> : <Copy aria-hidden="true" className="size-4" />}
       <span aria-live="polite">{copied ? "Copied" : "Copy email"}</span>

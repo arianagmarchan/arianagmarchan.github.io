@@ -5,33 +5,44 @@ import { interests } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Interests" };
 
+const dot = { brand: "bg-brand", sky: "bg-sky", rose: "bg-rose", mint: "bg-[#5fe3b0]" };
+const hover = { brand: "group-hover:text-brand", sky: "group-hover:text-sky", rose: "group-hover:text-rose", mint: "group-hover:text-[#5fe3b0]" };
+
 export default function InterestsPage() {
   return (
-    <>
-      <div className="mx-auto max-w-6xl px-4 pt-14 sm:px-8 sm:pt-20">
-        <Link href="/" className="mb-8 inline-block text-sm text-muted-foreground hover:text-foreground">← Home</Link>
-        <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">Interests</h1>
-        <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
-          Sushi is one of them, so the rest come around on a belt.
+    <div className="city-glow">
+      <div className="mx-auto max-w-6xl px-4 pt-32 sm:px-8 sm:pt-36">
+        <Link href="/" className="mb-8 inline-block text-sm text-muted-foreground transition-colors hover:text-sky">← Home</Link>
+        <h1 className="text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl">
+          <span className="text-neon">Interests</span>
+        </h1>
+        <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
+          Sushi is one of them, so the rest come around on a belt. The record plays, too.
         </p>
       </div>
 
       <InterestsBelt />
 
       {/* The same list without the belt, for keyboard, screen reader and no-JavaScript visitors. */}
-      <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-8">
-        <h2 className="text-xl font-semibold tracking-tight">Everything on the belt</h2>
-        <ul className="mt-4 divide-y divide-border border-y border-border">
+      <div className="mx-auto max-w-6xl px-4 pb-28 pt-12 sm:px-8">
+        <h2 className="text-2xl font-bold tracking-tight">Everything on the belt</h2>
+        <ul className="mt-6 grid gap-x-10 sm:grid-cols-2">
           {interests.map((i) => (
-            <li key={i.slug}>
-              <Link href={`/interests/${i.slug}`} className="group flex flex-col gap-0.5 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                <span className="font-medium group-hover:text-brand">{i.name}</span>
-                <span className="text-muted-foreground">{i.blurb}</span>
+            <li key={i.slug} className="border-b border-border">
+              <Link href={`/interests/${i.slug}/`} className="group flex items-start gap-4 py-5">
+                <img src={i.plate} alt="" className="size-12 shrink-0 rounded-full" />
+                <span>
+                  <span className={`flex items-center gap-2 font-display text-lg font-bold transition-colors ${hover[i.color]}`}>
+                    <span className={`size-2 rounded-full ${dot[i.color]}`} />
+                    {i.name}
+                  </span>
+                  <span className="mt-0.5 block text-muted-foreground">{i.blurb}</span>
+                </span>
               </Link>
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }

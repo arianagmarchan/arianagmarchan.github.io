@@ -1,58 +1,55 @@
 import Link from "next/link";
 import { profile } from "@/lib/content";
-
-const nav = [
-  { href: "/projects", label: "Projects" },
-  { href: "/interests", label: "Interests" },
-  { href: "/resume", label: "Resume" },
-  { href: "/#contact", label: "Contact" },
-];
+import { HeaderBar } from "@/components/header-bar";
 
 export function SiteHeader() {
-  return (
-    <header className="no-print border-b border-border">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-2 px-4 py-5 sm:px-8">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
-          {profile.name}
-        </Link>
-        <nav aria-label="Main" className="flex flex-wrap gap-x-6 gap-y-1 text-[15px] text-muted-foreground">
-          {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="transition-colors hover:text-foreground">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
+  return <HeaderBar name={profile.name} />;
 }
 
 export function SiteFooter() {
   return (
-    <footer className="no-print border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-4 px-4 py-8 text-sm text-muted-foreground sm:px-8">
-        <span>© 2026 {profile.name}</span>
-        <span className="flex gap-5">
-          <a href={`mailto:${profile.email}`} className="hover:text-foreground">Email</a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
+    <footer className="no-print relative">
+      <div className="rail" />
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-10 text-sm text-muted-foreground sm:px-8">
+        <span>© 2026 {profile.name} · Los Angeles</span>
+        <span className="flex flex-wrap gap-x-5 gap-y-1">
+          <a href={`mailto:${profile.email}`} className="hover:text-brand">Email</a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-sky">LinkedIn</a>
+          <a href="https://www.guglielmogiannattasio.it" target="_blank" rel="noreferrer" className="hover:text-foreground">
+            Hero video by guglielmogiannattasio
+          </a>
         </span>
       </div>
     </footer>
   );
 }
 
-/** Narrow page wrapper with a title, used by every inner page. */
-export function PageShell({ title, intro, back, children }: { title: string; intro?: React.ReactNode; back?: { href: string; label: string }; children: React.ReactNode }) {
+/** Wrapper for every inner page: back link, a lit title, an intro line. */
+export function PageShell({
+  title,
+  intro,
+  back,
+  tint = "warm",
+  children,
+}: {
+  title: string;
+  intro?: React.ReactNode;
+  back?: { href: string; label: string };
+  tint?: "warm" | "cool";
+  children: React.ReactNode;
+}) {
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-24 pt-14 sm:px-8 sm:pt-20">
-      {back && (
-        <Link href={back.href} className="no-print mb-8 inline-block text-sm text-muted-foreground hover:text-foreground">
-          ← {back.label}
-        </Link>
-      )}
-      <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{title}</h1>
-      {intro && <div className="mt-5 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">{intro}</div>}
-      <div className="mt-12">{children}</div>
+    <div className="city-glow">
+      <div className="mx-auto max-w-3xl px-4 pb-28 pt-32 sm:px-8 sm:pt-36">
+        {back && (
+          <Link href={back.href} className="no-print mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-sky">
+            ← {back.label}
+          </Link>
+        )}
+        <h1 className={`text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl ${tint === "warm" ? "text-neon" : "text-neon-cool"}`}>{title}</h1>
+        {intro && <div className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">{intro}</div>}
+        <div className="mt-14">{children}</div>
+      </div>
     </div>
   );
 }
