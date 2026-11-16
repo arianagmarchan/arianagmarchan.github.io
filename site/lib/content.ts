@@ -207,20 +207,20 @@ export const interests: Interest[] = [
     color: "rose",
     plate: "/interests/music.svg",
     blurb: "Steelpan, piano, and one song I've played more than 50 times.",
-    details: ["Steelpan", "Piano", "Top track: Rein Me In"],
+    details: ["Steelpan", "Piano", "Top track: Friday I'm In Love"],
     body: [
       "I play steelpan, the instrument Trinidad and Tobago gave the world, and piano.",
-      "My top track right now is Rein Me In by Sam Fender and Olivia Dean. I've listened to it over 50 times and I'm not stopping. Press play on the record to hear a bit of it.",
+      "My top track right now is Friday I'm In Love by The Cure. I've listened to it over 50 times and I'm not stopping. Press play on the record to hear a bit of it.",
     ],
     track: {
-      title: "Rein Me In",
-      artist: "Sam Fender & Olivia Dean",
-      album: "Rein Me In (Single)",
+      title: "Friday I'm In Love",
+      artist: "The Cure",
+      album: "Wish",
       preview:
-        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/40/ed/fb/40edfb1b-5292-9ebc-a724-fc14e9a65502/mzaf_11469346113225952343.plus.aac.p.m4a",
+        "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/de/35/c0/de35c065-9c6c-f9e5-d9bf-974eebef90da/mzaf_969952745186056862.plus.aac.p.m4a",
       cover:
-        "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ec/81/1d/ec811d0e-64d9-224c-25df-9d26456874f9/25UMGIM75096.rgb.jpg/300x300bb.jpg",
-      spotify: "https://open.spotify.com/search/Rein%20Me%20In%20Olivia%20Dean",
+        "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/49/99/b4/4999b482-ac72-6aa2-0016-a6924355e72e/dj.tyyqcstw.jpg/300x300bb.jpg",
+      spotify: "https://open.spotify.com/search/Friday%20I%27m%20In%20Love%20The%20Cure",
       note: "50+ plays and counting",
     },
     photos: [],
