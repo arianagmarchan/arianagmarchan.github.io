@@ -3,7 +3,9 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import GlassFolder, { type ArtRecipe, type FolderFile } from "@/components/ui/glass-folder-cards";
-import { interests, profile, projects } from "@/lib/content";
+import { interests, profile, projects, resume } from "@/lib/content";
+
+const roles = (id: string) => `${resume.sections.find((s) => s.id === id)?.entries.length ?? 0} roles`;
 
 // Night-city light streaks in the site's own colours: navy, cyan, amber and pink.
 const CITY_ART: ArtRecipe = {
@@ -33,8 +35,8 @@ const interestFiles: FolderFile[] = [
 
 const resumeFiles: FolderFile[] = [
   { name: "Skills", meta: "Software · shop", href: "/resume#skills" },
-  { name: "Leadership", meta: "3 roles", href: "/resume#leadership" },
-  { name: "Engineering experience", meta: "3 roles", href: "/resume#engineering" },
+  { name: "Leadership", meta: roles("leadership"), href: "/resume#leadership" },
+  { name: "Engineering experience", meta: roles("engineering"), href: "/resume#engineering" },
   { name: "Full resume", meta: "Web · printable", href: "/resume" },
 ];
 

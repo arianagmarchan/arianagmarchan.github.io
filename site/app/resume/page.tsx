@@ -24,12 +24,22 @@ export default function ResumePage() {
         <h2 className="border-b border-white/15 pb-3 font-display text-2xl font-bold tracking-tight text-neon-cool">Education</h2>
         <div className="mt-5 flex flex-col gap-1 sm:flex-row sm:justify-between sm:gap-6">
           <div>
-            <p className="font-medium text-white">{ed.school}</p>
-            <p className="text-muted-foreground">{ed.degree} · GPA {ed.gpa}</p>
+            <p className="font-display text-lg font-bold text-white">{ed.school}</p>
+            <p className="text-muted-foreground">{ed.degree}</p>
             <p className="mt-1 text-muted-foreground">{ed.honors}</p>
+            <p className="mt-1 text-muted-foreground">{ed.activities}</p>
           </div>
-          <p className="order-first shrink-0 text-sm text-muted-foreground sm:order-none">{ed.graduation}</p>
+          <p className="order-first shrink-0 text-sm text-brand sm:order-none">{ed.graduation}</p>
         </div>
+        {ed.others.map((o) => (
+          <div key={o.school} className="mt-6 flex flex-col gap-1 border-t border-border pt-6 sm:flex-row sm:justify-between sm:gap-6">
+            <div>
+              <p className="font-display text-lg font-bold text-white">{o.school}</p>
+              <p className="mt-1 leading-relaxed text-muted-foreground">{o.detail}</p>
+            </div>
+            <p className="order-first shrink-0 text-sm text-brand sm:order-none">{o.dates}</p>
+          </div>
+        ))}
       </section>
 
       {resume.sections.map((section) => (
