@@ -72,7 +72,11 @@ export const projects: Project[] = [
     ],
     tools: ["Carbon fiber layup", "Fiberglass layup", "Vacuum bagging", "Load testing", "Failure analysis", "Quality inspection", "Solite covering"],
     art: "glacier",
-    photos: [],
+    photos: [
+      { src: "/images/landing-gear.jpg", alt: "Carbon-fiber landing gear with wheels mounted under the competition aircraft", caption: "The finished gear on the aircraft" },
+      { src: "/images/landing-gear-layup.jpg", alt: "Ariana laying up carbon fiber over the landing gear mold", caption: "Carbon-fiber layup" },
+      { src: "/images/landing-gear-vacuum-bag.jpg", alt: "The landing gear layup sealed in a vacuum bag", caption: "Under vacuum" },
+    ],
   },
   {
     slug: "curve-hydrofoils",
@@ -92,7 +96,10 @@ export const projects: Project[] = [
     ],
     tools: ["Siemens NX", "MATLAB", "3D printing", "Instrumented testing", "Trade studies", "Literature review"],
     art: "aurora",
-    photos: [],
+    photos: [
+      { src: "/images/marine-vehicle.jpg", alt: "Small autonomous marine vehicle with bristled wings", caption: "The test vehicle" },
+      { src: "/images/curve-symposium.jpg", alt: "Ariana presenting on stage at the USC Viterbi CURVE Research Symposium", caption: "Presenting at the CURVE Research Symposium" },
+    ],
   },
   {
     slug: "lunar-rover",
@@ -120,10 +127,12 @@ export const projects: Project[] = [
     org: "Personal",
     dates: "May 2026 – present",
     summary:
-      "One master model in Onshape that generates four mission-driven UAV configurations, with MATLAB tools for the trade studies behind them.",
+      "A reusable conceptual-design platform for a family of long-endurance, high-wing, twin-boom UAVs: one top-down parametric model in Onshape that generates four mission-driven variants, with a MATLAB performance toolkit in progress.",
     points: [
-      "Built a fully parametric UAV assembly in Onshape that produces 4 configurations from a single master model.",
-      "Wrote MATLAB tools for drag, propulsion, weight and stability trade studies.",
+      "Built a top-down parametric UAV assembly in Onshape, driven by master parameters (wingspan, wing area, aspect ratio, taper, fuselage length, payload bay, tail area and tail arm), so a mission-level change updates the related geometry without remodeling.",
+      "Generated four variants from the one master model: Scout (low mass, surveillance endurance), Cargo (larger payload bay), Long-Endurance (higher-aspect-ratio wing for loiter time) and Fast Response (shorter wing, more propulsion for dash speed).",
+      "Structured the model around master sketches, named variables and stable reference geometry so it regenerates reliably across the intended parameter range.",
+      "In progress: MATLAB modules for weight and CG, wing loading and stall speed, drag, power, endurance, range and static stability, checked against hand calculations and published data for similar aircraft.",
     ],
     tools: ["Onshape", "MATLAB"],
     art: "verdant",
